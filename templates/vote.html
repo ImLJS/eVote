@@ -1,0 +1,110 @@
+{% extends "baseVoter.html" %}
+
+{% block content %}
+
+
+    </body>
+    </html></div><div class="page-wrapper">
+    <div class="content">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ url_for('voter_dashboard')}}">Voter Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <i class="feather-chevron-right"></i>
+                        </li>
+                        <li class="breadcrumb-item active">Vote</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table show-entire">
+                    <div class="card-body">
+                        <div class="page-table-header mb-2">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <div class="doctor-table-blk">
+                                        <h3>Vote</h3>
+                                        <div class="doctor-search-blk">
+                                            <div class="top-nav-search table-search-blk">
+                                                <form>
+                                                    <input type="text" class="form-control" placeholder="Search here"/>
+                                                    <a class="btn"><img src="/static/assets/img/icons/search-normal.svg" alt=""/></a>
+                                                </form>
+                                            </div>
+                                            <div class="add-group">
+
+                                                
+                                                <a href="javascript:;" class="btn btn-primary doctor-refresh ms-2"><img src="/static/assets/img/icons/re-fresh.svg" alt=""/></a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+
+                        <form action="#" method="post">
+                            <div class="table-responsive">
+                                <table class="table border-0 custom-table comman-table datatable mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Vote</th>
+                                            <th>Name</th>
+                                            <th>Party</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data in nom %}
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check check-tables">
+                                                        <input class="form-check-input" type="checkbox" name="check" onclick="onlyOne(this)"
+                                                            value="{{ data['party_name'] }}">
+                                                    </div>
+                                                </td>
+                                                <td class="profile-image"><a href="#"><img width="28"
+                                                height="28" src="{{url_for('image',member_name=data['member_name'])}}"
+                                                class="rounded-circle m-r-5" alt="">{{ data['member_name'] }}</a></td>
+                                                <td>{{ data['party_name'] }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+
+                                </table>
+                                <br>
+                                <div class="col-12">
+                                    <div class="doctor-submit text-center">
+                                        <button type="submit" class="btn btn-primary submit-form me-2">Vote</button>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></div>
+
+    </div><div class="sidebar-overlay" data-reff=""></div>
+
+    <script>
+        function onlyOne(checkbox) {
+            var checkboxes = document.getElementsByName('check')
+            checkboxes.forEach((item) => {
+                if (item !== checkbox) item.checked = false
+            })
+        }
+    </script>
+
+{% endblock %}
+

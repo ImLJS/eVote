@@ -1,0 +1,73 @@
+{% extends "baseAdmin.html" %}
+
+{% block content %}
+
+        <div class="page-wrapper">
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                              {% if messages %}
+                                {% for category, message in messages %}
+                                  <div class="alert alert-{{ category }}">
+                                    {{ message }}
+                                  </div>
+                                {% endfor %}
+                              {% endif %}
+                            {% endwith %}
+                        </div>
+                        <div class="col-sm-12">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="{{ url_for('admin_dashboard')}}">Admin Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <i class="feather-chevron-right"></i>
+                                </li>
+                                <li class="breadcrumb-item active">Verify</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="good-morning-blk">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="morning-user">
+                                <h2>Good Morning, <span>Admin</span></h2>
+                                <p>Have a nice day at work</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 position-blk">
+                            <div class="morning-img">
+                                <img src="/static/assets/img/morning-img-01.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="{{url_for('verify')}}" method="post">
+                                    <div class="col-12 col-md-6 col-xl-6">
+                                        <div class="form-group local-forms">
+                                            <label>OTP <span class="login-danger">*</span></label>
+                                            <input type="text" name="otp_check" class="form-control" placeholder="Enter the OTP" required="required" data-validation-required-message="Please enter your first name" />
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="doctor-submit text-end">
+                                            <button type="submit" class="btn btn-primary submit-form me-2" value="Verify">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+{% endblock %}

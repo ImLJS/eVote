@@ -1,0 +1,92 @@
+{% extends "baseAdmin.html" %}
+
+{% block content %}
+
+        <div class="page-wrapper">
+            <div class="content">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="{{ url_for('admin_dashboard')}}">Admin Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <i class="feather-chevron-right"></i>
+                                </li>
+                                <li class="breadcrumb-item active">Add Nominee</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="good-morning-blk">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="morning-user">
+                                <h2>Good Morning, <span>Admin</span></h2>
+                                <p>Have a nice day at work</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 position-blk">
+                            <div class="morning-img">
+                                <img src="/static/assets/img/morning-img-01.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="{{url_for('add_nom')}}" method="post" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-heading">
+                                                <h4>Voter Details</h4>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-12 col-md-6 col-xl-6">
+                                        <div class="form-group local-forms">
+                                            <label>Nominee Party Name <span class="login-danger">*</span></label>
+                                            <input class="form-control" type="text" placeholder="" name="party_name">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-xl-4">
+                                        <div class="form-group local-forms">
+                                            <label>Nominee Name <span class="login-danger">*</span></label>
+                                            <input class="form-control" type="text" placeholder="" name="member_name">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-xl-6">
+                                        <div class="form-group local-top-form">
+                                            <label class="local-top">Photo <span
+                                                    class="login-danger">*</span></label>
+                                            <div class="settings-btn upload-files-avator" >
+                                                <label for="file" class="upload">Choose File</label>
+                                                <input type="file" accept="image/*" name="symbol" id="file"
+                                                    onchange="loadFile(event)" placeholder="Upload Image" class="hide-input">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                                                       
+                                    <div class="col-12">
+                                        <div class="doctor-submit text-end">
+                                            <button type="submit"
+                                                class="btn btn-primary submit-form me-2">Submit</button>
+                                            <button type="submit" class="btn btn-primary cancel-form">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}

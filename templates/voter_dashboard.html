@@ -1,0 +1,51 @@
+{% extends "baseVoter.html" %}
+
+{% block content %}
+
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                          {% if messages %}
+                            {% for category, message in messages %}
+                              <div class="alert alert-{{ category }}">
+                                {{ message }}
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item active">
+                                    <a href="{{ url_for('voter_dashboard')}}">Voter Dashboard</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="good-morning-blk">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="morning-user">
+                                <h2>Good Morning, <span>{{ session['name'] }}</span></h2>
+                                <p>Have a nice day at work</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 position-blk">
+                            <div class="morning-img">
+                                <img src="/static/assets/img/morning-img-01.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+{% endblock %}
+
