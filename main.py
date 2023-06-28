@@ -19,8 +19,8 @@ cascade = cv2.CascadeClassifier(facedata)
 
 mydb = pymysql.connect(host='localhost', user='root', password='', port=3306, database='eVote')
 
-sender_address = 'imljs08.04@gmail.com'  # enter sender's email id
-sender_pass = 'lifjnercdxvndebu'  # enter sender's password
+sender_address = '#'  # enter sender's email id
+sender_pass = '#'  # enter sender's app password
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hello'
